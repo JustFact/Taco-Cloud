@@ -1,5 +1,5 @@
 # Taco-Cloud
-Spring and Spring Boot Training
+Spring and Spring Boot training project
 
 # Technical Concepts learnt/used till now:
 * Spring Core
@@ -7,3 +7,4 @@ Spring and Spring Boot Training
 * Spring MVC
 * Junit 5
 * Thymeleaf template
+* Maven
