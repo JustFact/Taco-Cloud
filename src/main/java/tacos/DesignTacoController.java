@@ -46,6 +46,12 @@ public class DesignTacoController {
 		model.addAttribute("design", new Taco());
 	return "design";
 	}
+	
+	@PostMapping
+	public String processDesign(Design design) {
+		log.info("Processing Design: "+design);
+		return "redirect:/orders/current";
+	}
 
 	private Object filterByType(List<Ingredient> ingredients, Type type) {
 		return ingredients.stream()
