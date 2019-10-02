@@ -8,3 +8,4 @@ Spring and Spring Boot training project
 * Junit 5
 * Thymeleaf template
 * Maven
+* Project Lombok
