@@ -11,11 +11,11 @@
 	<img th:src="@{/images/TacoCloud.png}"/>
 	<a th:href="@{/design}" id="another">Design another taco</a><br/>
 	<form method="POST" th:action="@{/orders}" th:object="${order}">
-		<!-- <div th:if="${#fields.hasErrors()}">
+		<div th:if="${#fields.hasErrors()}">
 			<span class= "validationError">
 				Please corrent the problem below and resubmit.
 			</span>
-		</div> -->
+		</div>
 		
 		<h3>Deliver my taco masterpiece to...</h3>
 		<label for="name">Name: </label>
