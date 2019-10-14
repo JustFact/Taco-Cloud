@@ -21,7 +21,9 @@ import lombok.extern.slf4j.Slf4j;
 import tacos.Ingredient;
 import tacos.Taco;
 import tacos.Ingredient.Type;
+import tacos.Order;
 import tacos.data.IngredientRepository;
+import tacos.data.TacoRepository;
 
 @Slf4j
 @Controller
@@ -30,10 +32,12 @@ import tacos.data.IngredientRepository;
 public class DesignTacoController {
 	
 	private final IngredientRepository ingredientRepo;
+	private TacoRepository designRepo;
 	
 	@Autowired
-	public DesignTacoController(IngredientRepository ingredientRepo) {
+	public DesignTacoController(IngredientRepository ingredientRepo, TacoRepository tacoRepo) {
 		this.ingredientRepo = ingredientRepo;
+		this.designRepo = tacoRepo;
 	}
 	
 //	@ModelAttribute
@@ -56,6 +60,16 @@ public class DesignTacoController {
 //					filterByType(ingredients, type));
 //		}
 //	}
+	
+	@ModelAttribute(name = "order")
+	public Order order() {
+		return new Order();
+	}
+	
+	@ModelAttribute(name = "taco")
+	public Taco taco() {
+		return new Taco();
+	}
 
 	@GetMapping
 	public String showDesignForm(Model model) {
@@ -79,10 +93,13 @@ public class DesignTacoController {
 	}
 	
 	@PostMapping
-	public String processDesign(@Valid @ModelAttribute("design") Taco design, Errors errors, Model model) {
+	public String processDesign(@Valid @ModelAttribute("design") Taco design, Errors errors, @ModelAttribute Order order) {
 		if(errors.hasErrors()) {
 			return "/design";
 		}
+		
+		Taco saved = designRepo.save(design);
+		order.addDesign(saved);
 		
 		log.info("Processing Design: "+design);
 		return "redirect:/orders/current";
