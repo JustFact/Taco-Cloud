@@ -33,7 +33,7 @@ public class JdbcTacoRepository implements TacoRepository {
 			saveIngredientToTaco(ingredient,tacoId);
 		}
 		
-		return null;
+		return taco;
 	}
 	
 	
