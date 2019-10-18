@@ -40,27 +40,6 @@ public class DesignTacoController {
 		this.designRepo = tacoRepo;
 	}
 	
-//	@ModelAttribute
-//	public void addIngredientsToModel(Model model) {
-//		List<Ingredient> ingredients = Arrays.asList(
-//				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
-//				new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
-//				new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
-//				new Ingredient("CARN", "Carnitas", Type.PROTEIN),
-//				new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
-//				new Ingredient("LETC", "Lettuce", Type.VEGGIES),
-//				new Ingredient("CHED", "Cheddar", Type.CHEESE),
-//				new Ingredient("JACK", "Monterry Jack", Type.CHEESE),
-//				new Ingredient("SLSA", "Salsa", Type.SAUCE),
-//				new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
-//				);
-//		Type[] types = Ingredient.Type.values();
-//		for(Type type : types) {
-//			model.addAttribute(type.toString().toLowerCase(),
-//					filterByType(ingredients, type));
-//		}
-//	}
-	
 	@ModelAttribute(name = "order")
 	public Order order() {
 		return new Order();
@@ -111,3 +90,25 @@ public class DesignTacoController {
 				.collect(Collectors.toList());
 	}
 }
+
+
+//@ModelAttribute
+//public void addIngredientsToModel(Model model) {
+//	List<Ingredient> ingredients = Arrays.asList(
+//			new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
+//			new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
+//			new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
+//			new Ingredient("CARN", "Carnitas", Type.PROTEIN),
+//			new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
+//			new Ingredient("LETC", "Lettuce", Type.VEGGIES),
+//			new Ingredient("CHED", "Cheddar", Type.CHEESE),
+//			new Ingredient("JACK", "Monterry Jack", Type.CHEESE),
+//			new Ingredient("SLSA", "Salsa", Type.SAUCE),
+//			new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
+//			);
+//	Type[] types = Ingredient.Type.values();
+//	for(Type type : types) {
+//		model.addAttribute(type.toString().toLowerCase(),
+//				filterByType(ingredients, type));
+//	}
+//}
