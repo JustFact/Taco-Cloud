@@ -9,3 +9,5 @@ Spring and Spring Boot training project
 * Thymeleaf template
 * Maven
 * Project Lombok
+* Spring Data JDBC and JPA
+* Spring Security
