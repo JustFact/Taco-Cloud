@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.passwordEncoder(encoder());
 	}
 	
+	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
 			.antMatchers("/design", "/orders")
@@ -33,7 +34,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.access("permitAll")
 			.and()
 			.formLogin()
-			.loginPage("/login");
+			.loginPage("/login")
+			.and()
+			.logout()
+			.logoutSuccessUrl("/");
 	}
 	
 	@Bean
