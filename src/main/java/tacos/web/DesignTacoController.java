@@ -45,14 +45,14 @@ public class DesignTacoController {
 		return new Order();
 	}
 	
-	@ModelAttribute(name = "taco")
-	public Taco taco() {
+	@ModelAttribute(name = "design")
+	public Taco design() {
 		return new Taco();
 	}
 
 	@GetMapping
 	public String showDesignForm(Model model) {
-		model.addAttribute("design", new Taco());
+//		model.addAttribute("design", new Taco());
 		
 		List<Ingredient> ingredients = new ArrayList<>();
 		
@@ -74,7 +74,7 @@ public class DesignTacoController {
 	@PostMapping
 	public String processDesign(@Valid Taco design, Errors errors, @ModelAttribute Order order) {
 		if(errors.hasErrors()) {
-			return "/design";
+			return "design";
 		}
 	
 		Taco saved = designRepo.save(design);
