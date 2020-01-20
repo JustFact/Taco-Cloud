@@ -1,5 +1,5 @@
 # Taco-Cloud
-Spring and Spring Boot training project
+Spring and Spring Boot self studying project
 
 # Technical Concepts learnt/used till now:
 * Spring Core
